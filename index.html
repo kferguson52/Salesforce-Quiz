@@ -1,24 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Salesforce Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Salesforce Quiz</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+  <body>
+    <header>
+      <div>View High Scores</div>
+      <div>time: <span id="clock">0</span></div>
+    </header>
 
-<body>
-  <header>
-  </header>
+    <main>
+      <!-- Container 1 for Starting the game -->
+      <div id="Start-Container-Id" class="Start-Container-Class">
+        <h1></h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda
+          odit, omnis asperiores labore amet cum, accusantium, ad modi aut
+          eligendi at. Obcaecati tempore enim sapiente ut perspiciatis
+          consequuntur explicabo quis?
+        </p>
+        <button id="Start-Quiz">Start Quiz</button>
+      </div>
+      <!-- Container 2 for House the Question Dynamically -->
+      <div id="Question-Container-Id" class="hide">
+        <h1 id="Question-Title"></h1>
+        <div id="Question-Answer"></div>
+      </div>
+      <!-- Container 3 to complete game showing the user score, and then you can enter initials -->
+      <div id="final-id" class="final-class hide">
+        <h2>All done!</h2>
+        <p>Your final score is <span id="score"></span></p>
+        <p>
+          Enter initials: <input type="text" id="intials" /><button
+            id="user-score"
+          >
+            Submit
+          </button>
+        </p>
+      </div>
+    </main>
 
-  <main class="page-content">
-  </main>
-
-  <footer>
-  </footer>
-
-  <script src="./assets/js/script.js"></script>
-</body>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
