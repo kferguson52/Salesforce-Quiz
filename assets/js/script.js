@@ -12,63 +12,74 @@ var buttonFinal = document.querySelector("#user-score");
 var time = 75;
 
 var questions = [
-    {
-        question: "how are you today?",
-        choices: ["happy", 'sad', 'hungry', "mad"],
-        answer: "happy"
-    },
-    {
-        question: "how are you today 2?",
-        choices: ["happy", 'sad', 'hungry', "mad"],
-        answer: "sad"
-    },
-    {
-        question: "how are you today3?",
-        choices: ["happy", 'sad', 'hungry', "mad"],
-        answer: "hungry"
-    },
+  {
+    question: "how are you today?",
+    choices: ["happy", "sad", "hungry", "mad"],
+    answer: "happy",
+  },
+  {
+    question: "how are you today 2?",
+    choices: ["happy", "sad", "hungry", "mad"],
+    answer: "sad",
+  },
+  {
+    question: "how are you today3?",
+    choices: ["happy", "sad", "hungry", "mad"],
+    answer: "hungry",
+  },
 ];
 
-function startTimer(){
-
+function startTimer() {
+  var start = setInterval(function () {
+    if (time >= 1) {
+      clock.textContent = time + " seconds remaining";
+      clock--;
+    } else if (time === 1) {
+      clock.textContent = time + " seconds remaining";
+    } else {
+      clock.textContent = "";
+      clearInterval(start);
+      displayMessage();
+    }
+  }, 1000);
 }
 
-function startGame(){
-//when the game starts the timer starts. The start container is hidden, and show the question container withthe first question showing. setInterval
-    
-    startQuestions();
-    startTimer();
+startTimer();
+
+function startGame() {
+  //when the game starts the timer starts. The start container is hidden, and show the question container withthe first question showing. setInterval
+  buttonStart.addEventListener("click", startQuestions());
+  startTimer();
 }
 
-function startQuestions(){
-    //dynamically render the question and the choices in the question container.
-    
- questionbuttonClick()
+startGame();
+
+function startQuestions() {
+  //dynamically render the question and the choices in the question container.
+  for (i = 0; i < questions.length; i++) {
+    containerTitle.textContent = questions[1];
+    containerQuestion.appendChild(containerTitle);
+    containerAnswer.textContent = questions.choices;
+    containerQuestion.appendChild(containerAnswer);
+  }
+
+  questionbuttonClick();
 }
 
-function questionbuttonClick(){
-    // when a user selects the wrong answer they are deducted 10 seconds off the time and the next question shows. if the timer hits 0 or the last question has been answered the game is over. 
+startQuestions();
 
-
+function questionbuttonClick() {
+  // when a user selects the wrong answer they are deducted 10 seconds off the time and the next question shows. if the timer hits 0 or the last question has been answered the game is over.
 }
 
-function gameOver(){
-    // when the game is over the question container is hidden and the end screen shows. the final score is the time left over from the clock. the clock is also stopped. clearInterval
+function gameOver() {
+  // when the game is over the question container is hidden and the end screen shows. the final score is the time left over from the clock. the clock is also stopped. clearInterval
 }
 
-function saveScore(){
-//when a user enters their initials and clicks submit the intials and score are saved in local storage. 
-
+function saveScore() {
+  //when a user enters their initials and clicks submit the intials and score are saved in local storage.
 }
-
 
 // button on clicks for start
 
 //button on click for submit intials
-
-
-
-
-
-
-
