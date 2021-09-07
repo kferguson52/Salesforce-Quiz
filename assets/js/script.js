@@ -29,11 +29,15 @@ var questions = [
     },
 ];
 
+function startTimer(){
+
+}
+
 function startGame(){
 //when the game starts the timer starts. The start container is hidden, and show the question container withthe first question showing. setInterval
-
-
-    startQuestions()
+    
+    startQuestions();
+    startTimer();
 }
 
 function startQuestions(){
